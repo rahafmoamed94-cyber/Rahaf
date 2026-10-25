@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aroma Cafe - أروما كافيه</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color:#3e2723;line-height:1.6;background-color:#fdfbf7}
+.container{width:90%;max-width:1100px;margin:auto}
+header{background:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,0.08)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:15px}
+.logo{font-size:26px;font-weight:bold;color:#4a2c2a;text-decoration:none}
+nav ul{display:flex;gap:20px;list-style:none}
+nav a{color:#3e2723;text-decoration:none;font-weight:bold}
+.btn{display:inline-block;background:#8d5b4c;color:white;padding:12px 20px;border-radius:8px;text-decoration:none;border:0;cursor:pointer;font-weight:bold;transition:.3s}
+.btn:hover{background:#5c3a2e}
+.hero{background:linear-gradient(120deg,#f5ebe0,#fff);padding:65px 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.tag{color:#8d5b4c;font-size:13px;font-weight:bold;letter-spacing:1px}
+h1{font-size:clamp(35px,5vw,52px);line-height:1.2;color:#3e2723;margin:18px 0}
+h1 span{color:#8d5b4c}
+p{color:#6d5952}
+.hero p{font-size:17px;margin-bottom:25px}
+.hero img{width:100%;height:370px;object-fit:cover;border-radius:20px}
+section{padding:65px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center}
+.stats h2{color:#8d5b4c;font-size:32px}
+.heading{text-align:center;margin-bottom:35px}
+.heading h2,.about h2{font-size:35px;color:#3e2723;margin:10px 0}
+.services,.doctors,.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{padding:25px;border:1px solid #ebdcd3;border-radius:15px;background:white}
+.icon{font-size:28px;background:#f5ebe0;width:58px;height:58px;display:grid;place-items:center;border-radius:12px;margin-bottom:15px;color:#8d5b4c}
+.card h3{margin-bottom:10px;color:#3e2723}
+.card p{font-size:14px}
+.about{background:#f9f3ed}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.about img{width:100%;height:350px;object-fit:cover;border-radius:18px}
+.benefit{margin:14px 0;font-weight:bold}
+.benefit span{color:#8d5b4c;margin-left:8px}
+.doctor{border:1px solid #ebdcd3;border-radius:14px;overflow:hidden;background:white}
+.doctor img{width:100%;height:230px;object-fit:cover}
+.doctor div{padding:18px}
+.doctor p{font-size:14px;margin-top:5px;color:#8d5b4c;font-weight:bold}
+.booking{background:#3e2723}
+.booking-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.booking h2{font-size:35px;color:white;margin:12px 0}
+.booking-copy p{color:#d7ccc8;margin-bottom:20px}
+.contact{color:#f5ebe0;margin:12px 0}
+form{background:white;padding:25px;border-radius:15px}
+form h3{font-size:23px;margin-bottom:20px;color:#3e2723}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:bold;color:#3e2723}
+input,select,textarea{padding:12px;border:1px solid #d7ccc8;border-radius:7px;width:100%;font:inherit}
+textarea{height:85px;resize:vertical}
+form .btn{width:100%;margin-top:16px}
+.stars{color:#e6a53b;margin-bottom:12px}
+footer{background:#231513;color:white;padding:35px 0;text-align:center}
+footer p{color:#a1887f;font-size:13px;margin-top:8px}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#3e2723;color:white;padding:14px 20px;border-radius:8px;display:none;max-width:90%;z-index:10}
+@media(max-width:760px){
+ nav{flex-wrap:wrap}
+ nav ul{width:100%;justify-content:center;flex-wrap:wrap;gap:12px}
+ nav ul a{font-size:13px}
+ .nav-btn{display:none}
+ .hero-grid,.about-grid,.booking-grid{grid-template-columns:1fr}
+ .hero img{height:280px}
+ .services,.doctors,.reviews{grid-template-columns:1fr}
+ .stats-grid{grid-template-columns:1fr}
+ .form-grid{grid-template-columns:1fr}
+ .field.full{grid-column:auto}
+ section{padding:45px 0}
+}
+</style>
+</head>
+<body>
+<header>
+<nav class="container">
+<a href="#home" class="logo">Aroma Cafe.</a>
+<ul>
+<li><a href="#home">الرئيسية</a></li>
+<li><a href="#menu">قائمة الطعام</a></li>
+<li><a href="#about">من نحن</a></li>
+<li><a href="#baristas">صناع القهوة</a></li>
+<li><a href="#reservation">حجز طاولة</a></li>
+</ul>
+<a class="btn nav-btn" href="#reservation">حجز طاولة</a>
+</nav>
+</header>
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div>
+<span class="tag">مذاق القهوة الحقيقي</span>
+<h1>تجربة قهوة فريدة <span>تنعش حواسك.</span></h1>
+<p>استمتع بأجود أنواع حبوب القهوة المختارة بعناية، مع أجواء هادئة وحلويات طازجة تُعد يومياً بكل حب.</p>
+<a class="btn" href="#reservation">احجز طاولتك الآن ↗</a>
+</div>
+<img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=900&q=85" alt="داخل الكافيه">
+</div>
+</section>
+<section class="stats">
+<div class="container stats-grid">
+<div><h2>+10</h2><p>سنوات من الخبرة</p></div>
+<div><h2>+15</h2><p>نوع قهوة مختصة</p></div>
+<div><h2>+10,000</h2><p>عميل سعيد</p></div>
+</div>
+</section>
+<section id="menu">
+<div class="container">
+<div class="heading"><span class="tag">ماذا نقدم</span><h2>قائمة المشروبات والحلويات</h2></div>
+<div class="services">
+<div class="card"><div class="icon">☕</div><h3>إسبريسو وقهوة مختصة</h3><p>مشروبات الإسبريسو الغنية، القهوة المقطرة، واللاتيه بالنكهات الفاخرة.</p></div>
+<div class="card"><div class="icon">🧊</div><h3>مشروبات باردة</h3><p>آيس سبانيش لاتيه ومشروبات منعشة للأنعاش اليومي.</p></div>
+<div class="card"><div class="icon">🍰</div><h3>حلويات طازجة</h3><p>تشكيلة واسعة من الكيك، التشيز كيك، والكرواسون الطازج.</p></div>
+</div>
+</div>
+</section>
+<section class="about" id="about">
+<div class="container about-grid">
+<img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85" alt="تحضير القهوة">
+<div>
+<span class="tag">عن أروما كافيه</span>
+<h2>مكانك المفضل للراحة والتركيز</h2>
+<p>يوفر أروما كافيه البيئة المثالية سواء كنت تبحث عن مكان مريح للقراءة والعمل، أو تريد لقاء أصدقائك والاستمتاع بكوب من القهوة المختصة.</p>
+<div class="benefit"><span>✓</span> خيارات متعددة تناسب جميع الأذواق</div>
+<div class="benefit"><span>✓</span> خدمة سريعة وطاقم عمل ودود</div>
+<a href="#reservation" class="btn">حجز طاولة</a>
+</div>
+</div>
+</section>
+<section id="baristas">
+<div class="container">
+<div class="heading"><span class="tag">فريقنا</span><h2>صناع القهوة المحترفون</h2></div>
+<div class="doctors">
+<div class="doctor"><img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=700&q=80" alt="صانع قهوة"><div><h3>أحمد محمود</h3><p>خبير تحميص وقهوة مختصة</p></div></div>
+<div class="doctor"><img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=700&q=80" alt="صانعة قهوة"><div><h3>سارة علي</h3><p>متخصصة رسم اللاتيه</p></div></div>
+<div class="doctor"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=700&q=80" alt="شيف حلويات"><div><h3>عمر خالد</h3><p>شيف الحلويات والمخبوزات</p></div></div>
+</div>
+</div>
+</section>
+<section class="booking" id="reservation">
+<div class="container booking-grid">
+<div class="booking-copy">
+<span class="tag" style="color:#d7ccc8">احجز مكانك</span>
+<h2>استمتع بوقتك معنا.</h2>
+<p>احجز طاولتك مسبقاً لضمان وجود مكان مناسب لك.</p>
+<div class="contact">✉ contact@aromacafe.com</div>
+<div class="contact">☎ +20 100 000 0000</div>
+</div>
+<form id="bookingForm">
+<h3>حجز طاولة</h3>
+<div class="form-grid">
+<div class="field"><label>الاسم بالكامل</label><input required placeholder="اسمك الكريم"></div>
+<div class="field"><label>البريد الإلكتروني</label><input type="email" required placeholder="example@domain.com"></div>
+<div class="field"><label>عدد الأفراد</label><select required><option value="">اختر العدد</option><option>فرد واحد</option><option>فردين</option><option>3 - 5 أفراد</option></select></div>
+<div class="field"><label>تاريخ الحجز</label><input type="date" required></div>
+</div>
+<button class="btn" type="submit">تأكيد طلب الحجز</button>
+</form>
+</div>
+</section>
+</main>
+<footer>
+<div class="container">
+<p>© Aroma Cafe. جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+</body>
+</html>
